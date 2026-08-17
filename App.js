@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button, ScrollView, TextInput } from 'react-native';
 import { useState, useEffect } from 'react';
+import ComponenteLogin from './componente';
 
 export default function App() {
 
@@ -61,11 +62,22 @@ export default function App() {
           onChangeText={(textosenha) => setSenha(textosenha)}
         />
 
-        <Button
-          color="gray"
-          onPress={fazerLogin}
-          title="Avançar"
+        <ComponenteLogin 
+          textColor="white" 
+          text="Data de validade"
+          inputStyle={styles.input}
+          textStyle={styles.text}
+          placeholderTextColor='gray'
         />
+      
+
+        <View style={styles.buttonContainer}>
+          <Button
+            color="gray"
+            onPress={fazerLogin}
+            title="Avançar"
+          />
+        </View>
 
         <StatusBar style="auto" />
 
@@ -76,6 +88,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+
+  buttonContainer: {
+  marginTop: 30
+},
 
   container: {
     alignItems: 'center',
